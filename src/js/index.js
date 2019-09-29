@@ -76,4 +76,4 @@ const controlRecipe = () => {
     }
 }
 
-window.addEventListener('hasgchange',controlRecipe);
+window.addEventListener('haschange',controlRecipe);
