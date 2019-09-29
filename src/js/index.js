@@ -59,8 +59,21 @@ elements.searchResPages.addEventListener('click', e => {
  * RECIPE CONTROLLER
  */
 const controlRecipe = () => {
-    const id = window.location.hash;
+    //Get ID from url
+    const id = window.location.hash.replace('#','');
     console.log(id);
+    
+    if(id) {
+        //prepare UI for changes
+
+        // create new recipe object
+
+        //get recipe data
+
+        //calculate servings and time
+
+        //render recipe
+    }
 }
 
 window.addEventListener('hasgchange',controlRecipe);
