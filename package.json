@@ -32,6 +32,8 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "idempotent-babel-polyfill": "^7.4.4"
+    "fractional": "^1.0.0",
+    "idempotent-babel-polyfill": "^7.4.4",
+    "uniqid": "^5.0.3"
   }
 }

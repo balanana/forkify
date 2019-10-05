@@ -7,23 +7,25 @@ export const clearInput = () => {
 };
 
 export const clearResults = () => {
-    elements.searchResultList.innerHTML = '';
+    elements.searchResList.innerHTML = '';
     elements.searchResPages.innerHTML = '';
 };
 
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if (title.length > limit) {
         title.split(' ').reduce((acc, cur) => {
-            if(acc + cur.length <= limit) {
+            if (acc + cur.length <= limit) {
                 newTitle.push(cur);
             }
             return acc + cur.length;
-        },0)
-        
-    }  //return the result
-    return `${newTitle.join(' ')} ...`
+        }, 0);
+
+        // return the result
+        return `${newTitle.join(' ')} ...`;
+    }
     return title;
+
 }
 
 const renderRecipe = recipe => {
@@ -40,7 +42,7 @@ const renderRecipe = recipe => {
             </a>
         </li>
     `;
-    elements.searchResultList.insertAdjacentHTML('beforeend', markup);
+    elements.searchResList.insertAdjacentHTML('beforeend', markup);
 };
 
 
@@ -68,7 +70,7 @@ let button;
         ${createButton(page, 'prev')}
         ${createButton(page, 'next')}
         `;
-    } else if ( page === pages && pages> 1 ){
+    } else if ( page === pages && pages > 1 ){
         //only button to go to prev page
         button = createButton(page, 'prev'); 
     }
@@ -76,12 +78,13 @@ let button;
     elements.searchResPages.insertAdjacentHTML('afterbegin', button); 
 }; 
 
-export const renderResults = ( recipes, page = 1, resPerPage = 10)  => {
-    // render results of current page
+export const renderResults = (recipes, page = 1, resPerPage = 10) => {
+    // render results of currente page
     const start = (page - 1) * resPerPage;
-    const end = page * resPerPage; 
+    const end = page * resPerPage;
+console.log(start,end);
     recipes.slice(start, end).forEach(renderRecipe);
 
-    //render pagination buttons
-    renderButtons(page, recipes.length,resPerPage )
+    // render pagination buttons
+    renderButtons(page, recipes.length, resPerPage);
 };
